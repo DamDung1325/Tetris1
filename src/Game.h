@@ -75,6 +75,7 @@ private:
     int selectedLevel;       // 0..2 (index trong LEVEL_CONFIGS)
     int levelHovered;        // 0..2 + 3=back, -1=none
     int settingsHovered;     // 0=bgmSlider,1=bgmToggle,2=sfxSlider,3=sfxToggle, 4-10=keys, 11=back
+    bool tutorialHovered;    // true nếu đang hover nút Back màn hình Tutorial
     int editingKeyIndex;     // -1=none, 0-6=đang chờ nhấn phím mới
     float bgmVolume;
     float sfxVolume;

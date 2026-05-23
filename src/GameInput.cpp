@@ -54,6 +54,9 @@ void Game::handleInput() {
                     audio.setSFXVolume(sfxVolume);
                 }
             }
+            else if (state == GameState::TUTORIAL) {
+                tutorialHovered = isMouseInRect(mx, my, btnTutorialBack);
+            }
         }
 
         // ── Mouse Button Up — stop dragging ──────────────────

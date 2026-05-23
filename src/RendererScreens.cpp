@@ -267,7 +267,7 @@ void Renderer::drawSettingsScreen(float bgmVol, float sfxVol, bool bgmOn,
 }
 
 // ── drawTutorialScreen ───────────────────────────────────────
-void Renderer::drawTutorialScreen(const char *keyNames[7]) {
+void Renderer::drawTutorialScreen(const char *keyNames[7], bool backHovered) {
   renderTextCentered(fontLarge, "HOW TO PLAY", WINDOW_WIDTH / 2, 60,
                      {233, 69, 96, 255});
   SDL_SetRenderDrawColor(sdlRenderer, 80, 80, 120, 255);
@@ -340,7 +340,7 @@ void Renderer::drawTutorialScreen(const char *keyNames[7]) {
 
   // Back button
   SDL_FRect btnBack = {(WINDOW_WIDTH - 200) / 2.0f, 650, 200, 45};
-  drawButton("< BACK", btnBack, false);
+  drawButton("< BACK", btnBack, backHovered);
 }
 
 // ── drawPauseOverlay ─────────────────────────────────────────

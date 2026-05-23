@@ -16,7 +16,7 @@ Game::Game()
       score(0), level(1), totalLines(0),
       fallTimer(0.0f), fallInterval(1.0f), animTime(0.0f),
       menuHoveredBtn(-1), selectedLevel(0), levelHovered(-1),
-      settingsHovered(-1), editingKeyIndex(-1),
+      settingsHovered(-1), tutorialHovered(false), editingKeyIndex(-1),
       bgmVolume(1.0f), sfxVolume(1.0f),
       draggingBGM(false), draggingSFX(false) {
     // Init button rects
@@ -37,8 +37,8 @@ Game::Game()
     // Settings rects
     bgmSliderRect = {450, 187, 250, 16};
     sfxSliderRect = {450, 232, 250, 16};
-    bgmToggleRect = {730, 183, 60, 24};
-    sfxToggleRect = {730, 228, 60, 24};
+    bgmToggleRect = {780, 183, 60, 24};
+    sfxToggleRect = {780, 228, 60, 24};
     for (int i = 0; i < 7; i++)
         keyBindRects[i] = {450, (float)(348 + i * 40), 180, 28};
     btnSettingsBack = {(WINDOW_WIDTH-200)/2.0f, 660, 200, 45};
@@ -171,7 +171,7 @@ void Game::render() {
         kn[4] = getKeyName(keys.rotateCW);
         kn[5] = getKeyName(keys.rotateCCW);
         kn[6] = getKeyName(keys.hold);
-        renderer->drawTutorialScreen(kn);
+        renderer->drawTutorialScreen(kn, tutorialHovered);
         break;
     }
 

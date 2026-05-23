@@ -60,7 +60,7 @@ public:
     void drawSettingsScreen(float bgmVol, float sfxVol, bool bgmOn, bool sfxOn,
                             int hoveredItem, int editingKey,
                             const char* keyNames[7]);
-    void drawTutorialScreen(const char* keyNames[7]);
+    void drawTutorialScreen(const char* keyNames[7], bool backHovered = false);
     void drawPauseOverlay();
     void drawGameOverScreen(int score, int level, int lines);
 

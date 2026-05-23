@@ -277,9 +277,25 @@ void Renderer::drawGhostPiece(const Tetromino& tetromino, int ghostY) {
 
 // ── drawNextPiece ────────────────────────────────────────────
 void Renderer::drawNextPiece(const Tetromino& nextPiece) {
-    int panelX = 745; int panelY = 105;
     TetrominoType type = nextPiece.getType();
     if (type == TetrominoType::NONE) return;
+
+    int panelX_base = 733; // Tọa độ X gốc của panel NEXT
+    int panelY_base = 90;  // Tọa độ Y gốc của panel NEXT
+    int offsetX = 33;      // Mặc định cho mảnh 3x2 (T, S, Z, J, L)
+    int offsetY = 37;
+
+    if (type == TetrominoType::I) {
+        offsetX = 19;      // Mảnh I (4x1)
+        offsetY = 23;
+    } else if (type == TetrominoType::O) {
+        offsetX = 19;      // Mảnh O (2x2)
+        offsetY = 37;
+    }
+
+    int panelX = panelX_base + offsetX;
+    int panelY = panelY_base + offsetY;
+
     SDL_Color color = getTetrominoColor(type);
     float bs = 28.0f;
     for (int r = 0; r < 4; ++r)
@@ -290,9 +306,25 @@ void Renderer::drawNextPiece(const Tetromino& nextPiece) {
 
 // ── drawHeldPiece ────────────────────────────────────────────
 void Renderer::drawHeldPiece(const Tetromino& heldPiece) {
-    int panelX = 97; int panelY = 105;
     TetrominoType type = heldPiece.getType();
     if (type == TetrominoType::NONE) return;
+
+    int panelX_base = 85;  // Tọa độ X gốc của panel HOLD
+    int panelY_base = 90;  // Tọa độ Y gốc của panel HOLD
+    int offsetX = 33;      // Mặc định cho mảnh 3x2 (T, S, Z, J, L)
+    int offsetY = 37;
+
+    if (type == TetrominoType::I) {
+        offsetX = 19;      // Mảnh I (4x1)
+        offsetY = 23;
+    } else if (type == TetrominoType::O) {
+        offsetX = 19;      // Mảnh O (2x2)
+        offsetY = 37;
+    }
+
+    int panelX = panelX_base + offsetX;
+    int panelY = panelY_base + offsetY;
+
     SDL_Color color = getTetrominoColor(type);
     float bs = 28.0f;
     for (int r = 0; r < 4; ++r)
